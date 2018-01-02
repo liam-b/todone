@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .sidebar
+    h1 groups
+    each collection, i in todone.collections.getAll()
+      .group(style='margin-left: ' + indentOnParent(collection, 0) * 10 + 'px')
+        h3= collection.name
+  .content
+    h1 tasks
+    each item, i in todone.items.getAll()
+      h3= item.content
+      p= todone.collections.get(item.parent).name

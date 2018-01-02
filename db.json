@@ -1,0 +1,37 @@
+{
+  "collections": [
+    {
+      "name": "personal",
+      "id": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "type": "workspace",
+      "parent": ""
+    },
+    {
+      "name": "boop",
+      "id": "ae85cf32-f91e-4533-b504-7aadff3af756",
+      "type": "group",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d"
+    },
+    {
+      "name": "inbox",
+      "id": "ae85cf32-f95e-4533-b504-7aadff3af756",
+      "type": "group",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d"
+    }
+  ],
+  "items": [
+    {
+      "content": "my todo note!",
+      "id": "fcd2cbba-3a44-48ba-8574-f4fe48e35c33",
+      "type": "todo",
+      "parent": "ae85cf32-f95e-4533-b504-7aadff3af756"
+    },
+    {
+      "content": "wow!",
+      "id": "fcd6cbba-3a44-48ba-8574-f4fe48e35c33",
+      "type": "todo",
+      "parent": "ae85cf32-f95e-4533-b504-7aadff3af756"
+    }
+  ],
+  "classes": []
+}

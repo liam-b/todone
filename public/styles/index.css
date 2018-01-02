@@ -1,0 +1,21 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 1 / 7;
+  background-color: #7777ff;
+
+  padding-left: 20px;
+}
+.content {
+  grid-column: 2 / 4;
+  grid-row: 1 / 7;
+  background-color: #ff7777;
+
+  padding-left: 20px;
+}
