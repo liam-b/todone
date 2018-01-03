@@ -5,7 +5,7 @@ Array.prototype.move = function (old_index, new_index) {
       this.push(undefined)
     }
   }
-  this.splice(new_index + 1, 0, this.splice(old_index, 1)[0])
+  this.splice(new_index, 0, this.splice(old_index, 1)[0])
   return this
 }
 Array.prototype.insert = function (item, index) {

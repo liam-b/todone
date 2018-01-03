@@ -29,3 +29,15 @@ app.get('/', (request, response) => {
 app.listen(3000, () => {
   console.info('started on port 3000')
 })
+
+app.post('/item/move', (request, response) => {
+  console.log(request.body)
+  // todone.items.move(request.body.from, request.body.to)
+})
+
+app.post('/test', (request, response) => {
+  console.log(request.body.content)
+})
+
+// todone.items.remove('fcd9cbba-3a44-48ba-8574-f4fe48e35c33')
+todone.items.add('one', '0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d', 'todo')

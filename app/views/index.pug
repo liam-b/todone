@@ -1,13 +1,15 @@
 extends layout
 
 block content
-  .sidebar
-    h1 groups
-    each collection, i in todone.collections.getAll()
-      .group(style='margin-left: ' + indentOnParent(collection, 0) * 10 + 'px')
-        h3= collection.name
-  .content
-    h1 tasks
-    each item, i in todone.items.getAll()
-      h3= item.content
-      p= todone.collections.get(item.parent).name
+  .row
+    .sidebar.col.s3.grey.lighten-4
+      h1 groups
+      each collection, i in todone.collections.getAll()
+        .group(style='margin-left: ' + indentOnParent(collection, 0) * 10 + 'px')
+          h3= collection.name
+    .content.col.s9.blue.lighten-3
+      h1 tasks
+      ul.collection#columns
+        each item, i in todone.items.getAll()
+          li.collection-item.column(draggable=true id=item.id)= item.content
+            //- p.small= todone.collections.get(item.parent).name
