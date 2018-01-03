@@ -2,7 +2,18 @@ const uuid = require('uuid/v4')
 const database = require('./database.js')
 
 module.exports = {
-  'get': function() {},
+  'get': function() {
+    let item = {}
+
+    for (var i = 0; i < db.data.items.length; i++) {
+      if (db.data.items[i].id == id) {
+        item = db.data.items[i]
+        break
+      }
+    }
+
+    return item
+  },
 
   'getAll': function() {
     let items = []
@@ -15,7 +26,9 @@ module.exports = {
   },
 
   'getAllFromGroup': function(parent) {
-    let groupItems = db.data.items.filter(function(item) {return item.parent == parent})
+    let groupItems = db.data.items.filter(function(item) {
+      return item.parent == parent
+    })
 
     groupItems.sort(function(itemA, itemB) {
       if (itemA.order < itemB.order) return -1

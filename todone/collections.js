@@ -11,7 +11,6 @@ module.exports = {
         break
       }
     }
-    database.save(db.path, db.data)
 
     return collection
   },
