@@ -2,7 +2,7 @@ const uuid = require('uuid/v4')
 const database = require('./database.js')
 
 module.exports = {
-  'get': function() {
+  'get': function(id) {
     let item = {}
 
     for (var i = 0; i < db.data.items.length; i++) {
@@ -13,6 +13,19 @@ module.exports = {
     }
 
     return item
+  },
+
+  'getIndex': function(id) {
+    let index
+
+    for (var i = 0; i < db.data.items.length; i++) {
+      if (db.data.items[i].id == id) {
+        index = i
+        break
+      }
+    }
+
+    return index
   },
 
   'getAll': function() {
@@ -79,25 +92,11 @@ module.exports = {
 
   'update': function() {},
 
-  'move': function(fromId, toId) {
-    let fromIndex = getIndex(fromId)
-    let toIndex = getIndex(toId)
-
-    db.data.items.move(fromIndex, toIndex)
+  'updateOrders': function(idList) {
+    for (var i = 0; i < idList.length; i++) {
+      db.data.items[module.exports.getIndex(idList[i])].order = i
+    }
 
     database.save(db.path, db.data)
   }
-}
-
-function getIndex(id) {
-  let index = 0
-
-  for (var i = 0; i < db.data.items.length; i++) {
-    if (db.data.items[i].id == id) {
-      index = i
-      break
-    }
-  }
-
-  return index
 }

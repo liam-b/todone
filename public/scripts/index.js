@@ -35,16 +35,16 @@ function handleDrop(e) {
     this.insertAdjacentHTML('beforebegin', dropHTML)
     var dropElem = this.previousSibling
     addDnDHandlers(dropElem)
-
   }
+
   this.classList.remove('over')
 
-  $.ajax({
-    type: 'POST',
-    url: '/item/move',
-    data: {'from': $(dropElem)[0].id, 'to': $(dropElem).prevAll()[1].id},
-    success: function() {},
-    dataType: 'application/json'
+  let list = $('ul#columns li.collection-item').toArray().map(function(item) {
+    return item.id
+  })
+
+  $.post('/web/items/updateOrders', {
+    'idList': list
   })
 
   return false
@@ -72,3 +72,11 @@ function addDnDHandlers(elem) {
 var cols = document.querySelectorAll('#columns .column');
 [].forEach.call(cols, addDnDHandlers);
 
+$(document).ready(() => {
+  $('select').material_select()
+
+  $('div.workspace div div select').change(() => {
+    console.log('localhost:3000' + '/collection?id=' + $(this).find(':selected').get(0).id)
+    window.location.replace('http://localhost:3000' + '/collection?id=' + $(this).find(':selected').get(0).id + 'potato')
+  })
+})

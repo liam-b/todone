@@ -7,7 +7,7 @@ html
   body
     nav
       .nav-wrapper
-        a.brand-logo(href="#") Todone
+        a.brand-logo(href="#") Todooo
         //- a.button-collapse(href="#" data-activates="mobile-demo")
         //-   i.material-icons menu
         ul#nav-mobile.right.hide-on-med-and-down
@@ -15,28 +15,9 @@ html
             a navbar
               
     .content-container
-      block content
-    
-    footer.page-footer
-      .container
-        .row
-          .col.s5
-            h5.white-text Footer content
-            p.grey-text.text-lighten-4 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          .col.s2
-          .col.s5
-            h5.white-text Links
-            ul
-              li.grey-text.text-lighten-3 Link 1
-              li.grey-text.text-lighten-3 Link 2
-              li.grey-text.text-lighten-3 Link 3
-      .footer-copyright
-        .container
-          .row
-            .col.s10
-              p © 2014 Copyright Liam Brennan
-            .col.s2
-              p.grey-text.text-lighten-4 More Links
+      include index.pug
+        
+    include footer.pug
   
   script(src="/bower_components/jquery/dist/jquery.min.js")
   script(src="/bower_components/materialize/dist/js/materialize.min.js")

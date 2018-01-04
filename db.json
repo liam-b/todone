@@ -1,8 +1,14 @@
 {
   "collections": [
     {
-      "name": "personal",
+      "name": "Personal",
       "id": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "type": "workspace",
+      "parent": ""
+    },
+    {
+      "name": "School",
+      "id": "10beb67d-7dd1-4c64-a9bb-78f7b851fb6d",
       "type": "workspace",
       "parent": ""
     },
@@ -22,10 +28,38 @@
   "items": [
     {
       "content": "one",
-      "id": "256a27ea-f697-4d73-9497-0baec812d84e",
+      "id": "156a27ea-f697-4d73-9497-0baec812d84e",
+      "type": "todo",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 1
+    },
+    {
+      "content": "two",
+      "id": "21009628-5521-44fc-8183-73adb0e40558",
       "type": "todo",
       "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
       "order": 0
+    },
+    {
+      "content": "three",
+      "id": "386132fb-c04a-4aee-9848-217c9ece8fe0",
+      "type": "todo",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 3
+    },
+    {
+      "content": "four",
+      "id": "41009628-5521-44fc-8183-73adb0e40558",
+      "type": "todo",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 2
+    },
+    {
+      "content": "five",
+      "id": "51009628-5521-44fc-8183-73adb0e40558",
+      "type": "todo",
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 4
     }
   ],
   "classes": []

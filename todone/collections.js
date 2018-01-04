@@ -29,11 +29,13 @@ module.exports = {
     return index
   },
 
-  'getAll': function() {
+  'getAll': function(type) {
     let collections = []
 
     for (var i = 0; i < db.data.collections.length; i++) {
-      collections.push(db.data.collections[i])
+      if (!type || db.data.collections[i].type == type) {
+        collections.push(db.data.collections[i])
+      }
     }
 
     return collections
