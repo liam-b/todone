@@ -2,8 +2,9 @@ doctype html
 html
   head
     title Todone
+    //- link(href='http://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+    link(rel='stylesheet' href='/node_modules/semantic-ui-css/semantic.min.css')
     link(rel='stylesheet' href='/styles/index.css')
-    link(rel='stylesheet' href='/bower_components/materialize/dist/css/materialize.min.css')
   body
     nav
       .nav-wrapper
@@ -16,11 +17,14 @@ html
               
     .content-container
       include index.pug
-        
-    include footer.pug
   
-  script(crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js")
-  script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js")
-  script(src="/bower_components/jquery/dist/jquery.min.js")
-  script(src="/bower_components/materialize/dist/js/materialize.min.js")
+  //- production
+  //- script(crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js")
+  //- script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js")
+  
+  //- development
+  script(crossorigin src="https://unpkg.com/react@16/umd/react.development.js")
+  script(crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js")
+  
+  script(src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous')
   script(src="/bundle.js")

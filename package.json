@@ -7,13 +7,15 @@
     "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Liam Brennan <liam@anywhich.com>",
   "license": "ISC",
   "dependencies": {
     "chrono-node": "^1.3.5",
     "lokijs": "^1.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.1",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
@@ -22,5 +24,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "webpack": "^3.10.0"
-  }
+  },
+  "repository": "https://github.com/liam-b/todone.git"
 }

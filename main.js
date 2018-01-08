@@ -3,6 +3,10 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const Todone = require('./todone/main.js')
 
+const api = {
+  'items': require('./api/items.js')
+}
+
 const app = express()
 var todone = new Todone('./db.json')
 
@@ -51,13 +55,4 @@ app.get('/collection', (request, response) => {
   })
 })
 
-app.get('/web/getItems', (request, response) => {
-  console.log('sending', todone.items.getAll())
-  response.json({
-    items: todone.items.getAll()
-  })
-  response.end()
-})
-
-// todone.items.remove('fcd9cbba-3a44-48ba-8574-f4fe48e35c33')
-// todone.items.add('three', '0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d', 'todo')
+api.items(app, todone)

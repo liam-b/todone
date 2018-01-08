@@ -1,19 +1,19 @@
 .row
-  .sidebar.col.s3.blue-grey.lighten-2
-    .workspace.blue-grey.lighten-4
-      #root
-      .input-field.large-text
-        select
-          //- each collection, i in todone.collections.getAll('workspace')
-          //-   option(value=i + 1 id=collection.id selected=(collection.id == request.collection) ? 'selected' : '')= collection.name
-        
-    //- each collection, i in todone.collections.getAll('group')
-    //-   .group(style='margin-left: ' + indentOnParent(collection, 0) * 10 + 'px')
-    //-     h3= collection.name
-        
-  .content.col.s9
-    //- h1= todone.collections.get(request.collection).name
-    ul.collection#columns
-      //- each item, i in todone.items.getAllFromGroup(request.collection)
-      //-   li.collection-item.column(draggable=true id=item.id)= item.content
-      //-     //- p.small= todone.collections.get(item.pa rent).name
+  #root
+  //- .sidebar.col.s3.blue-grey.lighten-2
+  //-   .workspace.blue-grey.lighten-4
+  //-     .input-field.large-text
+  //-       select
+  //-         //- each collection, i in todone.collections.getAll('workspace')
+  //-         //-   option(value=i + 1 id=collection.id selected=(collection.id == request.collection) ? 'selected' : '')= collection.name
+  //- 
+  //-   //- each collection, i in todone.collections.getAll('group')
+  //-   //-   .group(style='margin-left: ' + indentOnParent(collection, 0) * 10 + 'px')
+  //-   //-     h3= collection.name
+  //- 
+  //- .content.col.s9
+  //-   //- h1= todone.collections.get(request.collection).name
+  //-   ul.collection#columns
+  //-     //- each item, i in todone.items.getAllFromGroup(request.collection)
+  //-     //-   li.collection-item.column(draggable=true id=item.id)= item.content
+  //-     //-     //- p.small= todone.collections.get(item.pa rent).name
