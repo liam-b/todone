@@ -42,13 +42,15 @@ module.exports = {
   },
 
   'getAllFromParent': function(parent) {
-    let collections = []
+    let collections = db.data.collections.filter(function(collection) {
+      return collection.parent == parent
+    })
 
-    for (var i = 0; i < db.data.collections.length; i++) {
-      if (!parent || db.data.collections[i].parent == parent) {
-        collections.push(db.data.collections[i])
-      }
-    }
+    collections.sort(function(collectionA, collectionB) {
+      if (collectionA.order < collectionB.order) return -1
+      if (collectionA.order > collectionB.order) return 1
+      return 0
+    })
 
     return collections
   },

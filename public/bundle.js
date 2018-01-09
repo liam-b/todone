@@ -62527,13 +62527,11 @@ class GroupList extends React.Component {
   }
 
   handleClick(id) {
-    console.log('GroupList', '/app/workspace/' + this.state.currentWorkspace + '/group/' + id);
     this.props.history.push('/app/workspace/' + this.state.currentWorkspace + '/group/' + id);
     this.setState({ 'activeItem': id });
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('i live');
     let workspace = nextProps.match.params.workspace;
     let group = nextProps.match.params.group;
 
@@ -62566,8 +62564,6 @@ class GroupList extends React.Component {
         return React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { className: 'GroupItem', key: collection.id, name: collection.name, id: collection.id, active: activeItem === collection.id, onClick: this.handleItemClick });
       });
     }
-
-    console.log(listGroups);
 
     return React.createElement(
       __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */],
@@ -62650,30 +62646,10 @@ class WorkspaceList extends React.Component {
 
   handleClick(id) {
     $.get('/api/collections/getAllFromParent?' + $.param({ 'parent': id }), response => {
-      console.log('WorkspaceList', '/app/workspace/' + id + '/group/' + id);
       this.props.history.push('/app/workspace/' + id + '/group/' + id);
     });
     this.setState({ 'activeItem': id });
   }
-
-  // componentDidMount() {
-  //   let activeItem = this.state.activeItem
-  //
-  //   $.get('/api/collections/getAll?' + $.param({'type': 'workspace'}), (response) => {
-  //     this.setState({
-  //       'collections': response.collections
-  //     })
-  //
-  //     $.get('/api/collections/getAllFromParent?' + $.param({'parent': activeItem}), (response) => {
-  //       console.log('WorkspaceList2', '/app/workspace/' + activeItem + '/group/' + response.collections.find((collection) => {
-  //         return collection.order === 0
-  //       }).id)
-  //       this.props.history.push('/app/workspace/' + activeItem + '/group/' + response.collections.find((collection) => {
-  //         return collection.order === 0
-  //       }).id)
-  //     })
-  //   })
-  // }
 
   componentWillReceiveProps(nextProps) {
     let workspace = nextProps.match.params.workspace;
@@ -62689,6 +62665,9 @@ class WorkspaceList extends React.Component {
 
   componentDidMount() {
     this.componentWillReceiveProps(this.props);
+    this.setState({
+      'activeItem': this.props.match.params.workspace
+    });
   }
 
   render() {
