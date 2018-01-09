@@ -6,3 +6,7 @@ div.NavMenu {
 a.WorkspaceGroupItem {
   font-weight: bold !important;
 }
+
+i.centeredIcon {
+  padding-left: 5px !important;
+}

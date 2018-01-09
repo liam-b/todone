@@ -1,5 +1,4 @@
-import { List, Segment } from 'semantic-ui-react'
-import Item from './Item.jsx'
+import { List, Segment, Button, Icon } from 'semantic-ui-react'
 
 class ItemList extends React.Component {
   constructor() {
@@ -21,6 +20,10 @@ class ItemList extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.componentWillReceiveProps(this.props)
+  }
+
   render() {
     let listItems
     listItems = this.state.items.map(item => {
@@ -36,6 +39,30 @@ class ItemList extends React.Component {
           {listItems}
         </List>
       </Segment>
+    )
+  }
+}
+
+class Item extends React.Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <List.Item id={this.props.id} className='Item'>
+        <Button animated='vertical' floated='right' compact size='small' color='grey'>
+          <Button.Content hidden>Edit</Button.Content>
+          <Button.Content visible>
+            <Icon name='edit' className='centeredIcon' />
+          </Button.Content>
+        </Button>
+
+        <List.Content>
+          <List.Header>{this.props.content}</List.Header>
+        </List.Content>
+      </List.Item>
     )
   }
 }

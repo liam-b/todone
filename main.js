@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const Todone = require('./todone/main.js')
+const request = require('request')
 
 const api = {
   'items': require('./api/items.js'),
@@ -24,11 +25,15 @@ function indentOnParent (collection, indent) {
   else return indent
 }
 
-app.get('/app*', (request, response) => {
-  response.render('layout', {
-    todone: todone,
-    'indentOnParent': indentOnParent
-  })
+app.get('/app', (request, response) => {
+  let workspace = todone.collections.getAll('workspace')[0].id
+  // let group = todone.collections.getAllFromParent(workspace)[0].id
+
+  response.redirect('/app/workspace/' + workspace + '/group/' + workspace)
+})
+
+app.get('/app/*', (request, response) => {
+  response.render('layout')
 })
 
 app.listen(3000, () => {
