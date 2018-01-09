@@ -4,25 +4,33 @@
       "name": "Personal",
       "id": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
       "type": "workspace",
-      "parent": ""
+      "parent": "",
+      "order": 0,
+      "indent": 0
     },
     {
       "name": "School",
       "id": "10beb67d-7dd1-4c64-a9bb-78f7b851fb6d",
       "type": "workspace",
-      "parent": ""
+      "parent": "",
+      "order": 1,
+      "indent": 0
     },
     {
       "name": "boop",
       "id": "ae85cf32-f91e-4533-b504-7aadff3af756",
       "type": "group",
-      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d"
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 0,
+      "indent": 0
     },
     {
       "name": "inbox",
       "id": "ae85cf32-f95e-4533-b504-7aadff3af756",
       "type": "group",
-      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d"
+      "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 1,
+      "indent": 0
     }
   ],
   "items": [
@@ -59,6 +67,20 @@
       "id": "51009628-5521-44fc-8183-73adb0e40558",
       "type": "todo",
       "parent": "0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d",
+      "order": 4
+    },
+    {
+      "content": "test one",
+      "id": "51009628-5521-44fc-8189-73adb0e40558",
+      "type": "todo",
+      "parent": "ae85cf32-f91e-4533-b504-7aadff3af756",
+      "order": 4
+    },
+    {
+      "content": "test two",
+      "id": "51009625-5521-44fc-8183-73adb0e40558",
+      "type": "todo",
+      "parent": "ae85cf32-f91e-4533-b504-7aadff3af756",
       "order": 4
     }
   ],

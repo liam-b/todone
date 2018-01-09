@@ -41,6 +41,18 @@ module.exports = {
     return collections
   },
 
+  'getAllFromParent': function(parent) {
+    let collections = []
+
+    for (var i = 0; i < db.data.collections.length; i++) {
+      if (!parent || db.data.collections[i].parent == parent) {
+        collections.push(db.data.collections[i])
+      }
+    }
+
+    return collections
+  },
+
   'add': function(name, type, parent) {
     let id = uuid()
     let collection = {

@@ -1,8 +1,10 @@
+const bodyParser = require('body-parser')
+
 module.exports = (app, todone) => {
-  app.get('/api/items/getAll', (request, response) => {
-    console.log('sending', todone.items.getAll())
+  app.get('/api/items/getAllFromGroup', (request, response) => {
+    // console.log('sending', todone.items.getAll())
     response.json({
-      items: todone.items.getAll()
+      items: todone.items.getAllFromGroup(request.query.parent)
     })
     response.end()
   })

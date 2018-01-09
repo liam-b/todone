@@ -2,20 +2,10 @@ doctype html
 html
   head
     title Todone
-    //- link(href='http://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
-    //- link(rel='stylesheet' href='/node_modules/semantic-ui/dist/semantic.min.css')
-    link(rel='stylesheet' href='/styles/semantic.chubby.min.css')
+    link(rel='stylesheet' href='/node_modules/semantic-ui-css/semantic.min.css')
+    //- link(rel='stylesheet' href='/styles/semantic.chubby.min.css')
     link(rel='stylesheet' href='/styles/index.css')
-  body
-    nav
-      .nav-wrapper
-        a.brand-logo(href="#") Todooo
-        //- a.button-collapse(href="#" data-activates="mobile-demo")
-        //-   i.material-icons menu
-        ul#nav-mobile.right.hide-on-med-and-down
-          li
-            a navbar
-              
+  body        
     .content-container
       include index.pug
   

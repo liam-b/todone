@@ -4,7 +4,8 @@ const bodyParser = require('body-parser')
 const Todone = require('./todone/main.js')
 
 const api = {
-  'items': require('./api/items.js')
+  'items': require('./api/items.js'),
+  'collections': require('./api/collections.js')
 }
 
 const app = express()
@@ -23,8 +24,7 @@ function indentOnParent (collection, indent) {
   else return indent
 }
 
-app.get('/', (request, response) => {
-  // console.log('sending', todone.items.getAllFromGroup('0bbeb67d-7dd1-4c64-a9bb-78f7b851fb6d'))
+app.get('/app*', (request, response) => {
   response.render('layout', {
     todone: todone,
     'indentOnParent': indentOnParent
@@ -41,7 +41,7 @@ app.post('/web/items/updateOrders', (request, response) => {
 })
 
 app.post('/test', (request, response) => {
-  console.log(request.body.content)
+  console.log(request.body)
 })
 
 app.get('/collection', (request, response) => {
@@ -56,3 +56,4 @@ app.get('/collection', (request, response) => {
 })
 
 api.items(app, todone)
+api.collections(app, todone)
