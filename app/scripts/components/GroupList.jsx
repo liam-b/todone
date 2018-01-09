@@ -17,13 +17,11 @@ class GroupList extends React.Component {
   }
 
   handleClick(id) {
-    console.log('GroupList', '/app/workspace/' + this.state.currentWorkspace + '/group/' + id)
     this.props.history.push('/app/workspace/' + this.state.currentWorkspace + '/group/' + id)
     this.setState({'activeItem': id})
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('i live')
     let workspace = nextProps.match.params.workspace
     let group = nextProps.match.params.group
 
@@ -58,8 +56,6 @@ class GroupList extends React.Component {
         )
       })
     }
-
-    console.log(listGroups)
 
     return (
       <Menu secondary vertical fluid className='GroupList'>

@@ -17,30 +17,10 @@ class WorkspaceList extends React.Component {
 
   handleClick(id) {
     $.get('/api/collections/getAllFromParent?' + $.param({'parent': id}), (response) => {
-      console.log('WorkspaceList', '/app/workspace/' + id + '/group/' + id)
       this.props.history.push('/app/workspace/' + id + '/group/' + id)
     })
     this.setState({'activeItem': id})
   }
-
-  // componentDidMount() {
-  //   let activeItem = this.state.activeItem
-  //
-  //   $.get('/api/collections/getAll?' + $.param({'type': 'workspace'}), (response) => {
-  //     this.setState({
-  //       'collections': response.collections
-  //     })
-  //
-  //     $.get('/api/collections/getAllFromParent?' + $.param({'parent': activeItem}), (response) => {
-  //       console.log('WorkspaceList2', '/app/workspace/' + activeItem + '/group/' + response.collections.find((collection) => {
-  //         return collection.order === 0
-  //       }).id)
-  //       this.props.history.push('/app/workspace/' + activeItem + '/group/' + response.collections.find((collection) => {
-  //         return collection.order === 0
-  //       }).id)
-  //     })
-  //   })
-  // }
 
   componentWillReceiveProps(nextProps) {
     let workspace = nextProps.match.params.workspace
@@ -56,6 +36,9 @@ class WorkspaceList extends React.Component {
 
   componentDidMount() {
     this.componentWillReceiveProps(this.props)
+    this.setState({
+      'activeItem': this.props.match.params.workspace
+    })
   }
 
   render() {
