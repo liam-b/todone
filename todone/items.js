@@ -49,8 +49,6 @@ module.exports = {
       return 0
     })
 
-    console.log(groupItems)
-
     return groupItems
   },
 

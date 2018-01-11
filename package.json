@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "webpack --watch",
     "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +20,7 @@
     "request": "^2.83.0",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.1",
+    "sortablejs": "^1.7.0",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

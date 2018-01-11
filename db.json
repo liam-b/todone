@@ -74,14 +74,14 @@
       "id": "51009628-5521-44fc-8189-73adb0e40558",
       "type": "todo",
       "parent": "ae85cf32-f91e-4533-b504-7aadff3af756",
-      "order": 4
+      "order": 0
     },
     {
       "content": "test two",
       "id": "51009625-5521-44fc-8183-73adb0e40558",
       "type": "todo",
       "parent": "ae85cf32-f91e-4533-b504-7aadff3af756",
-      "order": 4
+      "order": 1
     },
     {
       "content": "school task!",

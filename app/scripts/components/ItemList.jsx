@@ -34,8 +34,8 @@ class ItemList extends React.Component {
 
     if (listItems.length == 0) return null
     else return (
-      <Segment inverted className='ItemList'>
-        <List divided inverted relaxed='very'>
+      <Segment inverted className='ItemListSegment'>
+        <List divided inverted relaxed='very' id='ItemList'>
           {listItems}
         </List>
       </Segment>
@@ -52,12 +52,10 @@ class Item extends React.Component {
   render() {
     return (
       <List.Item id={this.props.id} className='Item'>
-        <Button animated='vertical' floated='right' compact size='small' color='grey'>
-          <Button.Content hidden>Edit</Button.Content>
-          <Button.Content visible>
-            <Icon name='edit' className='centeredIcon' />
-          </Button.Content>
-        </Button>
+        <Button.Group floated='right'>
+          <Button icon='edit' compact size='small' color='grey' />
+          <Button icon='delete' compact size='small' color='grey' />
+        </Button.Group>
 
         <List.Content>
           <List.Header>{this.props.content}</List.Header>
