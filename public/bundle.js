@@ -2333,7 +2333,7 @@ exports.default = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__collections_Grid_GridRow__ = __webpack_require__(338);
 /* unused harmony reexport GridRow */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__collections_Menu__ = __webpack_require__(683);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_25__collections_Menu__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_25__collections_Menu__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__collections_Menu_MenuHeader__ = __webpack_require__(340);
 /* unused harmony reexport MenuHeader */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__collections_Menu_MenuItem__ = __webpack_require__(341);
@@ -2385,7 +2385,7 @@ exports.default = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__elements_Header_HeaderSubheader__ = __webpack_require__(350);
 /* unused harmony reexport HeaderSubheader */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__elements_Icon__ = __webpack_require__(17);
-/* unused harmony reexport Icon */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_51__elements_Icon__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__elements_Icon_IconGroup__ = __webpack_require__(290);
 /* unused harmony reexport IconGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__elements_Image__ = __webpack_require__(61);
@@ -2393,7 +2393,7 @@ exports.default = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__elements_Image_ImageGroup__ = __webpack_require__(301);
 /* unused harmony reexport ImageGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__elements_Input__ = __webpack_require__(181);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_55__elements_Input__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_55__elements_Input__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__elements_Label__ = __webpack_require__(120);
 /* unused harmony reexport Label */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__elements_Label_LabelDetail__ = __webpack_require__(302);
@@ -2401,7 +2401,7 @@ exports.default = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__elements_Label_LabelGroup__ = __webpack_require__(303);
 /* unused harmony reexport LabelGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__elements_List__ = __webpack_require__(702);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_59__elements_List__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_59__elements_List__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__elements_List_ListContent__ = __webpack_require__(185);
 /* unused harmony reexport ListContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__elements_List_ListDescription__ = __webpack_require__(122);
@@ -2423,7 +2423,7 @@ exports.default = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__elements_Reveal_RevealContent__ = __webpack_require__(354);
 /* unused harmony reexport RevealContent */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__elements_Segment__ = __webpack_require__(710);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_70__elements_Segment__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_70__elements_Segment__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_71__elements_Segment_SegmentGroup__ = __webpack_require__(356);
 /* unused harmony reexport SegmentGroup */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_72__elements_Step__ = __webpack_require__(711);
@@ -22577,6 +22577,7 @@ __WEBPACK_IMPORTED_MODULE_3_jquery___default()(document).ready(() => {
       let list = __WEBPACK_IMPORTED_MODULE_3_jquery___default()('div#ItemList div.Item').toArray().map(function (item) {
         return item.id;
       });
+      if (typeof list == 'string') list = [list];
 
       __WEBPACK_IMPORTED_MODULE_3_jquery___default.a.post('/web/items/updateOrders', {
         'idList': list
@@ -62438,9 +62439,9 @@ class ItemList extends React.Component {
     let group = nextProps.match.params.group;
 
     if (group != 0) {
-      $.get('/api/items/getAllFromGroup?' + $.param({ 'parent': group }), response => {
+      $.get('/api/items/todos/parent/' + group, response => {
         this.setState({
-          items: response.items
+          items: response.todos
         });
       });
     }
@@ -62457,10 +62458,10 @@ class ItemList extends React.Component {
     });
 
     if (listItems.length == 0) return null;else return React.createElement(
-      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Segment */],
+      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["g" /* Segment */],
       { inverted: true, className: 'ItemListSegment' },
       React.createElement(
-        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["d" /* List */],
+        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* List */],
         { divided: true, inverted: true, relaxed: 'very', id: 'ItemList' },
         listItems
       )
@@ -62476,7 +62477,7 @@ class Item extends React.Component {
 
   render() {
     return React.createElement(
-      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["d" /* List */].Item,
+      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* List */].Item,
       { id: this.props.id, className: 'Item' },
       React.createElement(
         __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["a" /* Button */].Group,
@@ -62485,10 +62486,10 @@ class Item extends React.Component {
         React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["a" /* Button */], { icon: 'delete', compact: true, size: 'small', color: 'grey' })
       ),
       React.createElement(
-        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["d" /* List */].Content,
+        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* List */].Content,
         null,
         React.createElement(
-          __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["d" /* List */].Header,
+          __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* List */].Header,
           null,
           this.props.content
         )
@@ -62535,17 +62536,21 @@ class GroupList extends React.Component {
     let group = nextProps.match.params.group;
 
     if (workspace != 0 && group != 0) {
-      $.get('/api/collections/getAllFromParent?' + $.param({ 'parent': workspace }), response => {
-        if (workspace != this.state.currentWorkspace) this.setState({
-          'activeItem': workspace
-        });
+      $.get('/api/collections/groups/parent/' + workspace, response => {
+        // if (workspace != this.state.currentWorkspace) this.setState({
+        //   'activeItem': workspace
+        // })
 
         this.setState({
-          'collections': response.collections,
+          'collections': response.groups,
           'currentWorkspace': workspace
         });
 
-        if (workspace == group) this.setState({ 'activeItem': workspace });
+        this.setState({
+          'activeItem': group
+        });
+
+        // if (workspace == group) this.setState({'activeItem': workspace})
       });
     }
   }
@@ -62554,20 +62559,29 @@ class GroupList extends React.Component {
     this.componentWillReceiveProps(this.props);
   }
 
+  sayhi() {
+    console.log('hi');
+  }
+
   render() {
     const { activeItem } = this.state;
 
     let listGroups;
     if (true) {
       listGroups = this.state.collections.map(collection => {
-        return React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { className: 'GroupItem', key: collection.id, name: collection.name, id: collection.id, active: activeItem === collection.id, onClick: this.handleItemClick });
+        return React.createElement(
+          __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item,
+          { className: 'GroupItem', key: collection.id, id: collection.id, active: activeItem === collection.id, onClick: this.handleItemClick },
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["c" /* Icon */], { name: 'options' }),
+          collection.name
+        );
       });
     }
 
     return React.createElement(
-      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */],
+      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */],
       { secondary: true, vertical: true, fluid: true, className: 'GroupList' },
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { className: 'GroupItem WorkspaceGroupItem', key: this.state.currentWorkspace, name: 'Workspace', id: this.state.currentWorkspace, active: activeItem === this.state.currentWorkspace, onClick: this.handleItemClick }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { className: 'GroupItem WorkspaceGroupItem', key: this.state.currentWorkspace, name: 'Workspace', id: this.state.currentWorkspace, active: activeItem === this.state.currentWorkspace, onClick: this.handleItemClick }),
       listGroups
     );
   }
@@ -62597,20 +62611,20 @@ class NavMenu extends React.Component {
     const { activeItem } = this.state;
 
     return React.createElement(
-      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */],
+      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */],
       { secondary: true, className: 'NavMenu' },
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { name: 'home', active: this.state.activeItem === 'home', onClick: this.handleItemClick }),
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { name: 'messages', active: this.state.activeItem === 'messages', onClick: this.handleItemClick }),
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { name: 'friends', active: this.state.activeItem === 'friends', onClick: this.handleItemClick }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { name: 'home', active: this.state.activeItem === 'home', onClick: this.handleItemClick }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { name: 'messages', active: this.state.activeItem === 'messages', onClick: this.handleItemClick }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { name: 'friends', active: this.state.activeItem === 'friends', onClick: this.handleItemClick }),
       React.createElement(
-        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Menu,
+        __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Menu,
         { position: 'right' },
         React.createElement(
-          __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item,
+          __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item,
           null,
-          React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["c" /* Input */], { icon: 'search', placeholder: 'Search...' })
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["d" /* Input */], { icon: 'search', placeholder: 'Search...' })
         ),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { name: 'logout', active: this.state.activeItem === 'logout', onClick: this.handleItemClick })
+        React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { name: 'logout', active: this.state.activeItem === 'logout', onClick: this.handleItemClick })
       )
     );
   }
@@ -62644,9 +62658,7 @@ class WorkspaceList extends React.Component {
   }
 
   handleClick(id) {
-    $.get('/api/collections/getAllFromParent?' + $.param({ 'parent': id }), response => {
-      this.props.history.push('/app/workspace/' + id + '/group/' + id);
-    });
+    this.props.history.push('/app/workspace/' + id + '/group/' + id);
     this.setState({ 'activeItem': id });
   }
 
@@ -62654,9 +62666,9 @@ class WorkspaceList extends React.Component {
     let workspace = nextProps.match.params.workspace;
 
     if (workspace != 0) {
-      $.get('/api/collections/getAll?' + $.param({ 'type': 'workspace' }), response => {
+      $.get('/api/collections/workspaces', response => {
         this.setState({
-          'collections': response.collections
+          'collections': response.workspaces
         });
       });
     }
@@ -62675,12 +62687,12 @@ class WorkspaceList extends React.Component {
     let listWorkspaces;
     if (true) {
       listWorkspaces = this.state.collections.map(collection => {
-        return React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */].Item, { key: collection.id, name: collection.name, id: collection.id, active: activeItem === collection.id, onClick: this.handleItemClick });
+        return React.createElement(__WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */].Item, { key: collection.id, name: collection.name, id: collection.id, active: activeItem === collection.id, onClick: this.handleItemClick });
       });
     }
 
     return React.createElement(
-      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["e" /* Menu */],
+      __WEBPACK_IMPORTED_MODULE_0_semantic_ui_react__["f" /* Menu */],
       { pointing: true, secondary: true, className: 'WorkspaceList' },
       listWorkspaces
     );

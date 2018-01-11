@@ -1,4 +1,4 @@
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu, Segment, Icon, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router';
 
@@ -26,23 +26,31 @@ class GroupList extends React.Component {
     let group = nextProps.match.params.group
 
     if (workspace != 0 && group != 0) {
-      $.get('/api/collections/getAllFromParent?' + $.param({'parent': workspace}), (response) => {
-        if (workspace != this.state.currentWorkspace) this.setState({
-          'activeItem': workspace
-        })
+      $.get('/api/collections/groups/parent/' + workspace, (response) => {
+        // if (workspace != this.state.currentWorkspace) this.setState({
+        //   'activeItem': workspace
+        // })
 
         this.setState({
-          'collections': response.collections,
+          'collections': response.groups,
           'currentWorkspace': workspace
         })
 
-        if (workspace == group) this.setState({'activeItem': workspace})
+        this.setState({
+          'activeItem': group
+        })
+
+        // if (workspace == group) this.setState({'activeItem': workspace})
       })
     }
   }
 
   componentDidMount() {
     this.componentWillReceiveProps(this.props)
+  }
+
+  sayhi() {
+    console.log('hi')
   }
 
   render() {
@@ -52,7 +60,10 @@ class GroupList extends React.Component {
     if (true) {
       listGroups = this.state.collections.map(collection => {
         return (
-          <Menu.Item className='GroupItem' key={collection.id} name={collection.name} id={collection.id} active={activeItem === collection.id} onClick={this.handleItemClick} />
+          <Menu.Item className='GroupItem' key={collection.id} id={collection.id} active={activeItem === collection.id} onClick={this.handleItemClick}>
+            <Icon name='options' />
+            {collection.name}
+          </Menu.Item>
         )
       })
     }

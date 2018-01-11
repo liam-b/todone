@@ -1,9 +1,9 @@
 const bodyParser = require('body-parser')
 
-module.exports = (app, todone) => {
-  app.get('/api/items/getAllFromGroup', (request, response) => {
+module.exports = (app, todone, path) => {
+  app.get(path + '/todos/parent/:id', (request, response) => {
     response.json({
-      items: todone.items.getAllFromGroup(request.query.parent)
+      todos: todone.items.getAllFromGroup(request.params.id)
     })
     response.end()
   })

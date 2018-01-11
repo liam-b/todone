@@ -1,23 +1,37 @@
 const bodyParser = require('body-parser')
 
-module.exports = (app, todone) => {
-  app.get('/api/collections/get', (request, response) => {
+module.exports = (app, todone, path) => {
+  app.get(path + '/group/:id', (request, response) => {
     response.json({
-      collection: todone.collections.get(request.body.id)
+      group: todone.collections.get(request.params.id)
     })
     response.end()
   })
 
-  app.get('/api/collections/getAll', (request, response) => {
+  app.get(path + '/workspace/:id', (request, response) => {
     response.json({
-      collections: todone.collections.getAll(request.query.type)
+      workspace: todone.collections.get(request.params.id)
     })
     response.end()
   })
 
-  app.get('/api/collections/getAllFromParent', (request, response) => {
+  app.get(path + '/groups', (request, response) => {
     response.json({
-      collections: todone.collections.getAllFromParent(request.query.parent)
+      groups: todone.collections.getAll('group')
+    })
+    response.end()
+  })
+
+  app.get(path + '/workspaces', (request, response) => {
+    response.json({
+      workspaces: todone.collections.getAll('workspace')
+    })
+    response.end()
+  })
+
+  app.get(path + '/groups/parent/:id', (request, response) => {
+    response.json({
+      groups: todone.collections.getAllFromParent(request.params.id)
     })
     response.end()
   })

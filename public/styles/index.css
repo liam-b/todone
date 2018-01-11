@@ -13,8 +13,25 @@ i.centeredIcon {
 
 div.sortable-ghost {
   background-color: #444;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.sortable-ghost button {
+  visibility: hidden;
 }
 
 div.sortable-drag {
   opacity: 5%;
 }
+
+/* a.GroupItem {
+  padding-top: 0px !important;
+}
+
+a.GroupItem
+
+a.GroupItem button {
+  margin-bottom: 10px !important;
+} */

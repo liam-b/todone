@@ -41,7 +41,8 @@ app.listen(3000, () => {
 })
 
 app.post('/web/items/updateOrders', (request, response) => {
-  todone.items.updateOrders(request.body['idList[]'])
+  let idList = request.body['idList[]']
+  if (typeof idList != 'string') todone.items.updateOrders(idList)
   response.end()
 })
 
@@ -60,5 +61,5 @@ app.get('/collection', (request, response) => {
   })
 })
 
-api.items(app, todone)
-api.collections(app, todone)
+api.items(app, todone, '/api/items')
+api.collections(app, todone, '/api/collections')

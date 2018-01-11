@@ -12,9 +12,9 @@ class ItemList extends React.Component {
     let group = nextProps.match.params.group
 
     if (group != 0) {
-      $.get('/api/items/getAllFromGroup?' + $.param({'parent': group}), (response) => {
+      $.get('/api/items/todos/parent/' + group, (response) => {
         this.setState({
-          items: response.items
+          items: response.todos
         })
       })
     }

@@ -16,9 +16,7 @@ class WorkspaceList extends React.Component {
   }
 
   handleClick(id) {
-    $.get('/api/collections/getAllFromParent?' + $.param({'parent': id}), (response) => {
-      this.props.history.push('/app/workspace/' + id + '/group/' + id)
-    })
+    this.props.history.push('/app/workspace/' + id + '/group/' + id)
     this.setState({'activeItem': id})
   }
 
@@ -26,9 +24,9 @@ class WorkspaceList extends React.Component {
     let workspace = nextProps.match.params.workspace
 
     if (workspace != 0) {
-      $.get('/api/collections/getAll?' + $.param({'type': 'workspace'}), (response) => {
+      $.get('/api/collections/workspaces', (response) => {
         this.setState({
-          'collections': response.collections
+          'collections': response.workspaces
         })
       })
     }
