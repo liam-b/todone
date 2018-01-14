@@ -1,6 +1,8 @@
 import { Button, Grid, Segment, Input, Menu } from 'semantic-ui-react'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-class NavMenu extends React.Component {
+class Navbar extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -29,4 +31,4 @@ class NavMenu extends React.Component {
   }
 }
 
-export default NavMenu
+export default Navbar

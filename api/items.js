@@ -7,4 +7,10 @@ module.exports = (app, todone, path) => {
     })
     response.end()
   })
+
+  app.post(path + '/todos', (request, response) => {
+    // todone.items.add(request.body.content, request.body.parent, 'todo')
+    console.log(request.body)
+    response.end()
+  })
 }

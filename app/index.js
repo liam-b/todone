@@ -1,7 +1,8 @@
-import addDnDHandlers from './drag.js'
 import App from './components/App.jsx'
 import Sortable from 'sortablejs'
 import $ from 'jquery'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 ReactDOM.render(
   <App />,

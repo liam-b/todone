@@ -1,6 +1,8 @@
 import { Menu, Segment, Icon, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 class GroupList extends React.Component {
   constructor() {
