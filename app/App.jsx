@@ -1,16 +1,12 @@
 import { Button, Grid, Segment, Input, Menu } from 'semantic-ui-react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import ItemList from './ItemList.jsx'
-import GroupList from './GroupList.jsx'
-import NavMenu from './NavMenu.jsx'
-import WorkspaceList from './WorkspaceList.jsx'
+import Items from './components/Item/ItemList.jsx'
+import Groups from './components/Group/Group.component.js'
+import Navbar from './components/Navbar/Navbar.component.js'
+import Workspaces from './components/Workspace/Workspace.component.js'
 
 class App extends React.Component {
   constructor() {
@@ -29,15 +25,15 @@ class App extends React.Component {
     return (
       <Router>
         <div className='App'>
-          <NavMenu />
+          <Navbar />
 
           <Grid container>
             <Grid.Column width={4}>
-              <Route path='/app/workspace/:workspace/group/:group' component={WorkspaceList} />
-              <Route path='/app/workspace/:workspace/group/:group' component={GroupList} />
+              <Route path='/app/workspace/:workspace/group/:group' component={Workspaces} />
+              <Route path='/app/workspace/:workspace/group/:group' component={Groups} />
             </Grid.Column>
             <Grid.Column width={10}>
-              <Route path='/app/workspace/:workspace/group/:group' component={ItemList} />
+              <Route path='/app/workspace/:workspace/group/:group' component={Items} />
             </Grid.Column>
           </Grid>
         </div>

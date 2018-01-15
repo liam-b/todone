@@ -72,7 +72,10 @@ class GroupList extends React.Component {
 
     return (
       <Menu secondary vertical fluid className='GroupList'>
-        <Menu.Item className='GroupItem WorkspaceGroupItem' key={this.state.currentWorkspace} name='Workspace' id={this.state.currentWorkspace} active={activeItem === this.state.currentWorkspace} onClick={this.handleItemClick} />
+        <Menu.Item className='GroupItem WorkspaceGroupItem' key={this.state.currentWorkspace} id={this.state.currentWorkspace} active={activeItem === this.state.currentWorkspace} onClick={this.handleItemClick}>
+          <Icon name='options' />
+          Workspace
+        </Menu.Item>
         {listGroups}
       </Menu>
     )

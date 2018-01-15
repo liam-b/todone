@@ -1,8 +1,10 @@
-import App from './components/App.jsx'
+import App from './App.jsx'
 import Sortable from 'sortablejs'
 import $ from 'jquery'
 import React from 'react'
 import ReactDOM from 'react-dom'
+
+import './api/api.js'
 
 ReactDOM.render(
   <App />,
